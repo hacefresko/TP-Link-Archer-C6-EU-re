@@ -262,7 +262,6 @@ If we get the entropy of this file with `binwalk -E raw.lzma`, we can see that t
 	DECIMAL   	HEXADECIMAL 	DESCRIPTION
 	--------------------------------------------------------------------------------
 
-
 Now, if we try to uncompress the LZMA data with `binwalk` again, it produces redundant results which are not very helpful, probably due to the fact that `binwalk` is not able to fully know when LZMA data is. Because of this, it's better to do this process manually. However, we can use the data about where LZMA data sections begin. If one section doesn't end right where the next one starts, it can be fixed with a hex editor.
 
 Error messages from `unlzma`:
@@ -272,7 +271,7 @@ Error messages from `unlzma`:
 
 ### Executables
 
-Let's begin with `chunk1.bin`
+Let's begin with [`chunk1.bin`](./firmware/Archer%20C6(EU)_V4.0_220425/extracted/chunk1/chunk1.bin)
 
 	$ dd if=chunk1.bin of=chunk1.1.lzma bs=1 count=66344 && unlzma -d chunk1.1.lzma
 	$ mv chunk1.1 chunk1.1.bin
@@ -319,11 +318,11 @@ Let's begin with `chunk1.bin`
 	3622288   	0x374590    	Unix path: /etc/Wireless/RT2860/RT2860_2G.dat
 	3637850   	0x37825A    	Unix path: /etc/Wireless/RT2860/RT2860.dat
 
-According to `binwalk` these binary files don't make any sense at all. However, upon further inspection with `xxd`, they look like executable or something like that, since they have many strings related to important services such as HTTP, UPnP, etc. and a lot of binary data. Let's rename them to `executable1.bin` and `executable2.bin`.
+According to `binwalk` these binary files don't make any sense at all. However, upon further inspection with `xxd`, they look like executable or something like that, since they have many strings related to important services such as HTTP, UPnP, etc. and a lot of binary data. They are both at [`executable1.bin`](./firmware/Archer%20C6(EU)_V4.0_220425/extracted/chunk1/executable1.bin) and [`executable2.bin`](./firmware/Archer%20C6(EU)_V4.0_220425/extracted/executable2.bin).
 
 ### MINIFS
 
-Let's investigate now `chunk2.bin`. If we look back to its `binwalk`, we see that the first LZMA segment doesn't start at byte 0:
+Let's investigate now [`chunk2.bin`](./firmware/Archer%20C6(EU)_V4.0_220425/extracted/chunk1/chunk2.bin). If we look back to its `binwalk`, we see that the first LZMA segment doesn't start at byte 0:
 
 	$ binwalk chunk2.bin
     
