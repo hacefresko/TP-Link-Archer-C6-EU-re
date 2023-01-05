@@ -6,11 +6,10 @@ This repository aims to reverse engineer the TP-Link Archer C6 v4 (Europe Versio
 
 ## Hardware
 
-![](./images/motherboard.png)
+<img src="./images/motherboard.png" width=800>
 
 ### CPU
-
-![](./images/cpu.png)
+<img src="./images/cpu.png" width=400>
 
 It uses a custom CPU named `TP-Link ARM TP1900BN 2227-BXDSL ACMCACT6 05AA6132CF30001`.
 
@@ -18,11 +17,11 @@ I found out that TP-Link Archer C8 (US) router is nearly identical to this model
 
 ### Ethernet controller
 
-![](./images/ethernet_controller.png)
+<img src="./images/ethernet_controller.png" width=400>
 
 ### Flash
 
-![](./images/flash.png)
+<img src="./images/flash.png" width=400>
 
 ## External analysis
 
@@ -260,8 +259,8 @@ If we get the entropy of this file with `binwalk -E raw.lzma`, we can see that t
 
 	$ binwalk chunk3.bin
 
-   DECIMAL   	HEXADECIMAL 	DESCRIPTION
-   --------------------------------------------------------------------------------
+	DECIMAL   	HEXADECIMAL 	DESCRIPTION
+	--------------------------------------------------------------------------------
 
 
 Now, if we try to uncompress the LZMA data with `binwalk` again, it produces redundant results which are not very helpful, probably due to the fact that `binwalk` is not able to fully know when LZMA data is. Because of this, it's better to do this process manually. However, we can use the data about where LZMA data sections begin. If one section doesn't end right where the next one starts, it can be fixed with a hex editor.
