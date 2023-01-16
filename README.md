@@ -318,7 +318,7 @@ Let's begin with [`chunk1.bin`](./firmware/Archer%20C6(EU)_V4.0_220425/extracted
 	3622288   	0x374590    	Unix path: /etc/Wireless/RT2860/RT2860_2G.dat
 	3637850   	0x37825A    	Unix path: /etc/Wireless/RT2860/RT2860.dat
 
-According to `binwalk` these binary files don't make any sense at all. However, upon further inspection with `xxd`, they look like executable or something like that, since they have many strings related to important services such as HTTP, UPnP, etc. and a lot of binary data. They are both at [`executable1.bin`](./firmware/Archer%20C6(EU)_V4.0_220425/extracted/chunk1/executable1.bin) and [`executable2.bin`](./firmware/Archer%20C6(EU)_V4.0_220425/extracted/executable2.bin).
+According to `binwalk` these binary files don't make any sense at all. However, upon further inspection with `xxd`, they look like executable or something like that, since they have many strings related to important services such as HTTP, UPnP, etc. and a lot of binary data. They are both at [`executable1.bin`](./firmware/Archer%20C6(EU)_V4.0_220425/extracted/chunk1/executable1.bin) and [`executable2.bin`](./firmware/Archer%20C6(EU)_V4.0_220425/extracted/chunk2/executable2.bin).
 
 ### MINIFS
 
