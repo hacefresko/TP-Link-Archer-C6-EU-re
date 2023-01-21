@@ -262,7 +262,7 @@ If we get the entropy of this file with `binwalk -E raw.lzma`, we can see that t
 	DECIMAL   	HEXADECIMAL 	DESCRIPTION
 	--------------------------------------------------------------------------------
 
-Now, if we try to uncompress the LZMA data with `binwalk` again, it produces redundant results which are not very helpful, probably due to the fact that `binwalk` is not able to fully know when LZMA data is. Because of this, it's better to do this process manually. However, we can use the data about where LZMA data sections begin. If one section doesn't end right where the next one starts, it can be fixed with a hex editor.
+Now, if we try to uncompress the LZMA data with `binwalk` again, it produces redundant results which are not very helpful, probably due to the fact that `binwalk` is not able to fully know when LZMA data ends. Because of this, it's better to do this process manually. However, we can use the data about where LZMA data sections begin. If one section doesn't end right where the next one starts, it can be fixed with a hex editor.
 
 Error messages from `unlzma`:
 *   `File format not recognized`: File doesn't start with LZMA data
@@ -318,7 +318,7 @@ Let's begin with [`chunk1.bin`](./firmware/Archer%20C6(EU)_V4.0_220425/extracted
 	3622288   	0x374590    	Unix path: /etc/Wireless/RT2860/RT2860_2G.dat
 	3637850   	0x37825A    	Unix path: /etc/Wireless/RT2860/RT2860.dat
 
-According to `binwalk` these binary files don't make any sense at all. However, upon further inspection with `xxd`, they look like executable or something like that, since they have many strings related to important services such as HTTP, UPnP, etc. and a lot of binary data. They are both at [`executable1.bin`](./firmware/Archer%20C6(EU)_V4.0_220425/extracted/chunk1/executable1.bin) and [`executable2.bin`](./firmware/Archer%20C6(EU)_V4.0_220425/extracted/chunk1/executable2.bin).
+According to `binwalk` these binary files don't make any sense at all. However, upon further inspection with `strings`, first binary seems to be the U-boot binary, while the second one seems to be the main binary running on the device, which provides all different functionalities. I renamed them to [`uboot.bin`](./firmware/Archer%20C6(EU)_V4.0_220425/extracted/chunk1/uboot.bin) and [`main.bin`](./firmware/Archer%20C6(EU)_V4.0_220425/extracted/chunk1/main.bin)
 
 ### MINIFS
 
@@ -354,7 +354,6 @@ This produced 44 binary files, which seem to contain the whole filesystem. If we
 
 Anyway, I found an [RSA private key](./keys/private.pem) and derived the corresponding [public key](./keys/public.pem)
 
-This firmware seems to be bare metal software that directly interacts with the CPU
 
 ## UART
 
@@ -787,7 +786,7 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 	$ dd if=flash.bin of=profile.bin bs=1 skip=8380416 count=4096
 	$ dd if=flash.bin of=radio.bin bs=1 skip=8384512 count=4096
 
-## Getting access
+## Trying to get access
 
 Tried to ssh into the route:
 
