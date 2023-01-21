@@ -793,7 +793,7 @@ Tried to ssh into the route:
 	$ ssh root@192.168.1.1
 	Unable to negotiate with 192.168.1.1 port 22: no matching key exchange method found. Their offer: diffie-hellman-group1-sha1
 
-It requires some configuration. After tweaking some options, when succesfully login in with the password setup on first boot, the router closes the connection (confirmed this with UART logs). This may be because neither root nor admin are able to login via ssh remotely
+It requires some configuration. After tweaking some options, when succesfully login in with the password setup on first boot, the router closes the connection (confirmed this with UART logs). This may happen because neither root nor admin are able to login via ssh remotely
 
 	$ ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -oHostKeyAlgorithms=+ssh-dss -c aes256-cbc root@192.168.1.1
 	TPOS 5 IPSSH Test
