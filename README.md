@@ -13,7 +13,7 @@ This repository aims to reverse engineer the TP-Link Archer C6 v4 (Europe Versio
 
 It uses a custom CPU named `TP-Link ARM TP1900BN 2227-BXDSL ACMCACT6 05AA6132CF30001`.
 
-I found out that TP-Link Archer C8 (US) router is nearly identical to this model, including the CPU, except that it is labeled as `Mediatek TP1900BN 1945-BXDSL ACMCN611 05AA69191180006`, which seems to be a previous revision. Also found [here](https://forum.openwrt.org/t/tp-link-archer-c80-2020-will-it-be-supported/60897) that `TP1900BN` and `MT7626B(N)` are different names for the same SOC, which runs **ARM Cortex-A7**. Besides, when booting the device, there's a message through UART confirming this: `Hello, MT7626 E2`.
+I found out that TP-Link Archer C8 (US) router is nearly identical to this model, including the CPU, except that it is labeled as `Mediatek TP1900BN 1945-BXDSL ACMCN611 05AA69191180006`, which seems to be a previous revision. Also found [here](https://forum.openwrt.org/t/tp-link-archer-c80-2020-will-it-be-supported/60897) that `TP1900BN` and `MT7626B(N)` are different names for the same SOC, which runs **ARM Cortex-A7020-will-it-be-supported/60897) that `TP1900BN` and `MT7626B(N)` are different names for the same SOC, which runs **ARM Cortex-A7**. Besides, when booting the device, there's a message through UART confirming this: `Hello, MT7626 E2`.
 
 ### Ethernet controller
 
@@ -121,15 +121,29 @@ Ran `nmap` in the LAN side:
 Ran `nmap` in the WAN side, but no port is open by default
 
 
-### Web App
+### HTTP (web app)
 
 *   Used for configuration the first time the router is accessed (also configured TP-Link account)
 *   Requests are encrypted :/
 
+### SSH
+
+Tried to ssh into the route:
+
+	$ ssh root@192.168.1.1
+	Unable to negotiate with 192.168.1.1 port 22: no matching key exchange method found. Their offer: diffie-hellman-group1-sha1
+
+It requires some configuration. After tweaking some options, when succesfully login in with the password setup on first boot, the router closes the connection (confirmed this with UART logs). This may happen because neither root nor admin are able to login via ssh remotely
+
+	$ ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -oHostKeyAlgorithms=+ssh-dss -c aes256-cbc root@192.168.1.1
+	TPOS 5 IPSSH Test
+	root@192.168.1.1's password:
+	Connection to 192.168.1.1 closed by remote host.
+    Connection to 192.168.1.1 closed.
+
 ### Mobile App
 
 *   [TP-Link Tether](https://www.tp-link.com/us/tether/) can be used to interact with the router.
-
 
 ## Firmware analysis
 
@@ -786,17 +800,7 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 	$ dd if=flash.bin of=profile.bin bs=1 skip=8380416 count=4096
 	$ dd if=flash.bin of=radio.bin bs=1 skip=8384512 count=4096
 
-## Trying to get access
 
-Tried to ssh into the route:
+## Reversing
 
-	$ ssh root@192.168.1.1
-	Unable to negotiate with 192.168.1.1 port 22: no matching key exchange method found. Their offer: diffie-hellman-group1-sha1
-
-It requires some configuration. After tweaking some options, when succesfully login in with the password setup on first boot, the router closes the connection (confirmed this with UART logs). This may happen because neither root nor admin are able to login via ssh remotely
-
-	$ ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -oHostKeyAlgorithms=+ssh-dss -c aes256-cbc root@192.168.1.1
-	TPOS 5 IPSSH Test
-	root@192.168.1.1's password:
-	Connection to 192.168.1.1 closed by remote host.
-    Connection to 192.168.1.1 closed.
+The language that produces the best results for these binaries is `ARM Cortex 32 Little Endian`. Thanks to [@rel_as](https://twitter.com/rel_as), I know that the base address for [`uboot.bin`](./firmware/Archer%20C6(EU)_V4.0_220425/extracted/chunk1/uboot.bin) is `0x41C00000` and the one for [`main.bin`](./firmware/Archer%20C6(EU)_V4.0_220425/extracted/chunk1/main.bin) is `0x40205000`. Analyzed them with `ARM Aggressive Instruction Finder (Prototype)` and `Decompiler Parameter ID`.
