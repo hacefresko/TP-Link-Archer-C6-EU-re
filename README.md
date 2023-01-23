@@ -804,3 +804,8 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 ## Reversing
 
 The language that produces the best results for these binaries is `ARM Cortex 32 Little Endian`. Thanks to [@rel_as](https://twitter.com/rel_as), I know that the base address for [`uboot.bin`](./firmware/Archer%20C6(EU)_V4.0_220425/extracted/chunk1/uboot.bin) is `0x41C00000` and the one for [`main.bin`](./firmware/Archer%20C6(EU)_V4.0_220425/extracted/chunk1/main.bin) is `0x40205000`. Analyzed them with `ARM Aggressive Instruction Finder (Prototype)` and `Decompiler Parameter ID`.
+
+Many functions appear as `UndefinedFunction...`. The references to these functions cannot be shown so when one of these is encountered while reversing a function or something, it's very difficult to continue doing so. This appears to be caused by a problem with non-returning functions:
+
+![](./images/undefined_func.png)
+![](./images/undefined_func_decompiled.png)
