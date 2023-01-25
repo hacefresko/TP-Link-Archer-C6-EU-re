@@ -809,3 +809,7 @@ Many functions appear as `UndefinedFunction...`. The references to these functio
 
 ![](./images/undefined_func.png)
 ![](./images/undefined_func_decompiled.png)
+
+
+*	Identified the function that reads from the SSH socket, named `ipssh_read_from_socket()`.
+*	Identified the function that reads from a socket, named `socket_recv()`
