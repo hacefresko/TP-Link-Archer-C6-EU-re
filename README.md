@@ -141,6 +141,12 @@ It requires some configuration. After tweaking some options, when succesfully lo
 	Connection to 192.168.1.1 closed by remote host.
     Connection to 192.168.1.1 closed.
 
+### UPnP
+
+*	Performed some recon with [miranda-upnp](https://code.google.com/archive/p/miranda-upnp/) ([logs](logs/miranda.log)). 
+*	Cannot perform a Punch in The Hole attack at `WANConnectionDevice:WANIPConnection:AddPortMapping` due to the host validating the IP that sends the request
+*	Cannot create malicious Port Forwarding entry with XSS at `WANConnectionDevice:WANIPConnection:AddPortMapping` due to HTMl sanitanization
+
 ### Mobile App
 
 *   [TP-Link Tether](https://www.tp-link.com/us/tether/) can be used to interact with the router.

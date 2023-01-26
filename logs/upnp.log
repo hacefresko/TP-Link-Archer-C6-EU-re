@@ -1,0 +1,362 @@
+$ miranda.py
+
+Miranda v1.3
+The interactive UPnP client
+Craig Heffner, http://www.devttys0.com
+
+upnp> msearch
+
+Entering discovery mode for 'upnp:rootdevice', Ctl+C to stop...
+
+****************************************************************
+SSDP reply message from 192.168.0.1:1900
+XML file is located at http://192.168.0.1:1900/igd.xml
+Device is running TPOS/V1.0.0 UPnP/1.0 Archer C6/4.0
+****************************************************************
+
+^C
+Discover mode halted...
+
+upnp> host list
+
+	[0] 192.168.0.1:1900
+
+upnp> host get 0
+
+Requesting device and service info for 192.168.0.1:1900 (this could take a few seconds)...
+
+Host data enumeration complete!
+
+upnp> host details 0
+
+Host name:         192.168.0.1:1900
+UPNP XML File:     http://192.168.0.1:1900/igd.xml
+
+
+Device information:
+	Device Name: InternetGatewayDevice
+		Service Name: Layer3Forwarding
+			controlURL: /l3f
+			eventSubURL: /l3f
+			serviceId: urn:upnp-org:serviceId:L3Forwarding1
+			SCPDURL: /l3f.xml
+			fullName: urn:schemas-upnp-org:service:Layer3Forwarding:1
+			ServiceActions:
+				SetDefaultConnectionService
+					NewDefaultConnectionService
+						DefaultConnectionService:
+							dataType: string
+							sendEvents: N/A
+							allowedValueList: []
+						direction: in
+				GetDefaultConnectionService
+					NewDefaultConnectionService
+						DefaultConnectionService:
+							dataType: string
+							sendEvents: N/A
+							allowedValueList: []
+						direction: out
+	Device Name: WANDevice
+		Service Name: WANCommonInterfaceConfig
+			controlURL: /ifc
+			eventSubURL: /ifc
+			serviceId: urn:upnp-org:serviceId:WANCommonInterfaceConfig
+			SCPDURL: /ifc.xml
+			fullName: urn:schemas-upnp-org:service:WANCommonInterfaceConfig:1
+			ServiceActions:
+				GetTotalPacketsSent
+					NewTotalPacketsSent
+						TotalPacketsSent:
+							dataType: ui4
+							sendEvents: N/A
+							allowedValueList: []
+						direction: out
+				GetTotalPacketsReceived
+					NewTotalPacketsReceived
+						TotalPacketsReceived:
+							dataType: ui4
+							sendEvents: N/A
+							allowedValueList: []
+						direction: out
+				GetTotalBytesReceived
+					NewTotalBytesReceived
+						TotalBytesReceived:
+							dataType: ui4
+							sendEvents: N/A
+							allowedValueList: []
+						direction: out
+				GetTotalBytesSent
+					NewTotalBytesSent
+						TotalBytesSent:
+							dataType: ui4
+							sendEvents: N/A
+							allowedValueList: []
+						direction: out
+				GetCommonLinkProperties
+					NewPhysicalLinkStatus
+						PhysicalLinkStatus:
+							dataType: string
+							sendEvents: N/A
+							allowedValueList: ['Up', 'Down', 'Initializing', 'Unavailable']
+						direction: out
+					NewLayer1DownstreamMaxBitRate
+						Layer1DownstreamMaxBitRate:
+							dataType: ui4
+							sendEvents: N/A
+							allowedValueList: []
+						direction: out
+					NewWANAccessType
+						WANAccessType:
+							dataType: string
+							sendEvents: N/A
+							allowedValueList: ['DSL', 'POTS', 'Cable', 'Ethernet', 'Other']
+						direction: out
+					NewLayer1UpstreamMaxBitRate
+						Layer1UpstreamMaxBitRate:
+							dataType: ui4
+							sendEvents: N/A
+							allowedValueList: []
+						direction: out
+	Device Name: WANConnectionDevice
+		Service Name: WANIPConnection
+			controlURL: /ipc
+			eventSubURL: /ipc
+			serviceId: urn:upnp-org:serviceId:WANIPConnection
+			SCPDURL: /ipc.xml
+			fullName: urn:schemas-upnp-org:service:WANIPConnection:1
+			ServiceActions:
+				AddPortMapping
+					NewPortMappingDescription
+						PortMappingDescription:
+							dataType: string
+							sendEvents: N/A
+							allowedValueList: []
+						direction: in
+					NewLeaseDuration
+						PortMappingLeaseDuration:
+							dataType: ui4
+							sendEvents: N/A
+							allowedValueList: []
+						direction: in
+					NewInternalClient
+						InternalClient:
+							dataType: string
+							sendEvents: N/A
+							allowedValueList: []
+						direction: in
+					NewEnabled
+						PortMappingEnabled:
+							dataType: boolean
+							sendEvents: N/A
+							allowedValueList: []
+						direction: in
+					NewExternalPort
+						ExternalPort:
+							dataType: ui2
+							sendEvents: N/A
+							allowedValueList: []
+						direction: in
+					NewRemoteHost
+						RemoteHost:
+							dataType: string
+							sendEvents: N/A
+							allowedValueList: []
+						direction: in
+					NewProtocol
+						PortMappingProtocol:
+							dataType: string
+							sendEvents: N/A
+							allowedValueList: ['TCP', 'UDP']
+						direction: in
+					NewInternalPort
+						InternalPort:
+							dataType: ui2
+							sendEvents: N/A
+							allowedValueList: []
+						direction: in
+				GetNATRSIPStatus
+					NewRSIPAvailable
+						RSIPAvailable:
+							dataType: boolean
+							sendEvents: N/A
+							allowedValueList: []
+						direction: out
+					NewNATEnabled
+						NATEnabled:
+							dataType: boolean
+							sendEvents: N/A
+							allowedValueList: []
+						direction: out
+				GetGenericPortMappingEntry
+					NewPortMappingDescription
+						PortMappingDescription:
+							dataType: string
+							sendEvents: N/A
+							allowedValueList: []
+						direction: out
+					NewLeaseDuration
+						PortMappingLeaseDuration:
+							dataType: ui4
+							sendEvents: N/A
+							allowedValueList: []
+						direction: out
+					NewInternalClient
+						InternalClient:
+							dataType: string
+							sendEvents: N/A
+							allowedValueList: []
+						direction: out
+					NewEnabled
+						PortMappingEnabled:
+							dataType: boolean
+							sendEvents: N/A
+							allowedValueList: []
+						direction: out
+					NewExternalPort
+						ExternalPort:
+							dataType: ui2
+							sendEvents: N/A
+							allowedValueList: []
+						direction: out
+					NewPortMappingIndex
+						PortMappingNumberOfEntries:
+							dataType: ui2
+							sendEvents: N/A
+							allowedValueList: []
+						direction: in
+					NewRemoteHost
+						RemoteHost:
+							dataType: string
+							sendEvents: N/A
+							allowedValueList: []
+						direction: out
+					NewProtocol
+						PortMappingProtocol:
+							dataType: string
+							sendEvents: N/A
+							allowedValueList: ['TCP', 'UDP']
+						direction: out
+					NewInternalPort
+						InternalPort:
+							dataType: ui2
+							sendEvents: N/A
+							allowedValueList: []
+						direction: out
+				GetSpecificPortMappingEntry
+					NewPortMappingDescription
+						PortMappingDescription:
+							dataType: string
+							sendEvents: N/A
+							allowedValueList: []
+						direction: out
+					NewLeaseDuration
+						PortMappingLeaseDuration:
+							dataType: ui4
+							sendEvents: N/A
+							allowedValueList: []
+						direction: out
+					NewInternalClient
+						InternalClient:
+							dataType: string
+							sendEvents: N/A
+							allowedValueList: []
+						direction: out
+					NewEnabled
+						PortMappingEnabled:
+							dataType: boolean
+							sendEvents: N/A
+							allowedValueList: []
+						direction: out
+					NewExternalPort
+						ExternalPort:
+							dataType: ui2
+							sendEvents: N/A
+							allowedValueList: []
+						direction: in
+					NewRemoteHost
+						RemoteHost:
+							dataType: string
+							sendEvents: N/A
+							allowedValueList: []
+						direction: in
+					NewProtocol
+						PortMappingProtocol:
+							dataType: string
+							sendEvents: N/A
+							allowedValueList: ['TCP', 'UDP']
+						direction: in
+					NewInternalPort
+						InternalPort:
+							dataType: ui2
+							sendEvents: N/A
+							allowedValueList: []
+						direction: out
+				ForceTermination
+				GetExternalIPAddress
+					NewExternalIPAddress
+						ExternalIPAddress:
+							dataType: string
+							sendEvents: N/A
+							allowedValueList: []
+						direction: out
+				GetConnectionTypeInfo
+					NewPossibleConnectionTypes
+						PossibleConnectionTypes:
+							dataType: string
+							sendEvents: N/A
+							allowedValueList: ['Unconfigured', 'IP_Routed', 'IP_Bridged']
+						direction: out
+					NewConnectionType
+						ConnectionType:
+							dataType: string
+							sendEvents: N/A
+							allowedValueList: []
+						direction: out
+				GetStatusInfo
+					NewUptime
+						Uptime:
+							dataType: ui4
+							sendEvents: N/A
+							allowedValueList: []
+						direction: out
+					NewLastConnectionError
+						LastConnectionError:
+							dataType: string
+							sendEvents: N/A
+							allowedValueList: ['ERROR_NONE', 'ERROR_UNKNOWN']
+						direction: out
+					NewConnectionStatus
+						ConnectionStatus:
+							dataType: string
+							sendEvents: N/A
+							allowedValueList: ['Unconfigured', 'Connected', 'Disconnected']
+						direction: out
+				SetConnectionType
+					NewConnectionType
+						ConnectionType:
+							dataType: string
+							sendEvents: N/A
+							allowedValueList: []
+						direction: in
+				DeletePortMapping
+					NewProtocol
+						PortMappingProtocol:
+							dataType: string
+							sendEvents: N/A
+							allowedValueList: ['TCP', 'UDP']
+						direction: in
+					NewExternalPort
+						ExternalPort:
+							dataType: ui2
+							sendEvents: N/A
+							allowedValueList: []
+						direction: in
+					NewRemoteHost
+						RemoteHost:
+							dataType: string
+							sendEvents: N/A
+							allowedValueList: []
+						direction: in
+				RequestConnection
+
+upnp>
