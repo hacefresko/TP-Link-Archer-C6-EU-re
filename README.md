@@ -145,7 +145,7 @@ It requires some configuration. After tweaking some options, when succesfully lo
 
 *	Performed some recon with [miranda-upnp](https://code.google.com/archive/p/miranda-upnp/) ([logs](logs/miranda.log)). 
 *	Cannot perform a Punch in The Hole attack at `WANConnectionDevice:WANIPConnection:AddPortMapping` due to the host validating the IP that sends the request
-*	Cannot create malicious Port Forwarding entry with XSS at `WANConnectionDevice:WANIPConnection:AddPortMapping` due to HTMl sanitanization
+*	Cannot create malicious Port Forwarding entry with XSS at `WANConnectionDevice:WANIPConnection:AddPortMapping` due to HTML sanitanization
 
 ### Mobile App
 
@@ -811,11 +811,33 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 
 The language that produces the best results for these binaries is `ARM Cortex 32 Little Endian`. Thanks to [@rel_as](https://twitter.com/rel_as), I know that the base address for [`uboot.bin`](./firmware/Archer%20C6(EU)_V4.0_220425/extracted/chunk1/uboot.bin) is `0x41C00000` and the one for [`main.bin`](./firmware/Archer%20C6(EU)_V4.0_220425/extracted/chunk1/main.bin) is `0x40205000`. Analyzed them with `ARM Aggressive Instruction Finder (Prototype)` and `Decompiler Parameter ID`.
 
-Many functions appear as `UndefinedFunction...`. The references to these functions cannot be shown so when one of these is encountered while reversing a function or something, it's very difficult to continue doing so. This appears to be caused by a problem with non-returning functions:
+Many functions appear as `UndefinedFunction...`. The references to these functions cannot be shown so when one of these is encountered while reversing a function or something, it's very difficult to continue doing so:
 
 ![](./images/undefined_func.png)
 ![](./images/undefined_func_decompiled.png)
 
 
-*	Identified the function that reads from the SSH socket, named `ipssh_read_from_socket()`.
-*	Identified the function that reads from a socket, named `socket_recv()`
+This can be solved by creating a function in that memory address with double-click > `Create Function`.
+
+Known library functions:
+
+| Address  | Function |
+|----------|----------|
+| 40470B70 | memset_wrapper |
+| 40468290 | memset |
+| 404681B4 | memcpy |
+| 404CAFD8 | sprintf |
+| 403AF220 | strcasecmp |
+| 4043D23C | strncasecmp |
+| 4043D30C | strncpy |
+| 4046E508 | strncpy (also?) |
+| 4046EE1C | strtol |
+| 4046EFB4 | strstr |
+| 4046F5BC | strlen |
+| 40470138 | strncmp |
+| 4047033C | strchr |
+| 40470890 | strcmp |
+| 40471F64 | strcpy |
+| 40471568 | memcpy_wrapper |
+| 404CB19C | printf (kind of) |
+| 4044ACF8 | dbg_printf (?) |
