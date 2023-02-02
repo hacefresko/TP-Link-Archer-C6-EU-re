@@ -819,7 +819,7 @@ Many functions appear as `UndefinedFunction...`. The references to these functio
 
 This can be solved by creating a function in that memory address with double-click > `Create Function`.
 
-Known library functions:
+Known library functions in [`main.bin`](./firmware/Archer%20C6(EU)_V4.0_220425/extracted/chunk1/main.bin):
 
 | Address  | Function |
 |----------|----------|
