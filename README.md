@@ -841,3 +841,11 @@ Known library functions in [`main.bin`](./firmware/Archer%20C6(EU)_V4.0_220425/e
 | 40471568 | memcpy_wrapper |
 | 404CB19C | printf (kind of) |
 | 4044ACF8 | dbg_printf (?) |
+
+
+
+## Findingfs
+
+### Hardcoded encryption key for OneMesh protocol
+
+Functions `tdpPayloadDecryptAes()` and `tdpPayloadEncryptAes()`, respectively at `4022a0d4` and `4022a200` use what seems to be a hardcoded encryption key: `TPONEMESH_Kf!xn?gj6pMAt-wBNV_TDP`
