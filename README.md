@@ -844,7 +844,7 @@ Known library functions in [`main.bin`](./firmware/Archer%20C6(EU)_V4.0_220425/e
 
 
 
-## Findingfs
+## Findings
 
 ### Hardcoded encryption key for OneMesh protocol
 
