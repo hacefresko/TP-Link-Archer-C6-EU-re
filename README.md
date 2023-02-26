@@ -1,6 +1,6 @@
 # TP-Link Archer C6 v4 (EU)
 
-This repository aims to reverse engineer the TP-Link Archer C6 v4 (Europe Version). At the time, these are just my notes on it after a week of work. If you want to collaborate or just to say hi, don't hesitate to contact me!
+This repository aims to reverse engineer the TP-Link Archer C6 v4 (Europe Version) bare metal firmware. At the time, these are just my notes on it after a week of work. If you want to collaborate or just to say hi, don't hesitate to contact me!
 
 *   [Official docs](https://www.tp-link.com/es/home-networking/wifi-router/archer-c6/)
 
