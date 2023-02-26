@@ -831,7 +831,9 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 	| 40470B70 | memset_wrapper |
 	| 40468290 | memset |
 	| 404681B4 | memcpy |
+	| 404CB19C | printf (kind of) |
 	| 404CAFD8 | sprintf |
+	| 40482030 | snprintf |
 	| 403AF220 | strcasecmp |
 	| 4043D23C | strncasecmp |
 	| 4043D30C | strncpy |
@@ -844,7 +846,6 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 	| 40470890 | strcmp |
 	| 40471F64 | strcpy |
 	| 40471568 | memcpy_wrapper |
-	| 404CB19C | printf (kind of) |
 	| 40483380 | socket (kind of) |
 	| 404833f4 | bind |
 	| 404836ec | recvfrom |
@@ -857,6 +858,10 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 	| 403e9cac | miniUPnPDevRegist |
 	| 403ef70c | miniUPnPSSDPHandle |
 	| 4044ACF8 | dbg_printf (?) |
+	| 40414538 | igdIPCGetSpecificPortMapEntry |
+	| 404147c4 | igdIPCDeletePortMapping |
+	| 40414a64 | igdIPCGetGenericPortMapEntry |
+	| 40414ce0 | igdIPCAddPortMapping |
 
 *	Function `dbg_printf()` takes as parameter 1 the name of the function in which it is being called, so a lot of functions can be named from that
 
