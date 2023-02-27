@@ -850,11 +850,18 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 	| 40483808 | recvmsg |
 	| 404CAFD8 | sprintf |
 	| 404CB19C | printf (kind of) |
-	
+
 *	Interesting functions:
 
 	| Address  | Function |
 	|----------|----------|
+	| 403c6cb4 | sendOffer |
+	| 403c74bc | dhcpsHandle |
+	| 403c3878 | dhcp6sHandle |
+	| 4038612c | cwmp_download |
+	| 403863a4 | cwmp_upload |
+	| 40386aac | cwmp_processRecv |
+	| 40388cbc | cwmp_parseSoapHeader |
 	| 403e91f8 | miniUPnPDevAdd |
 	| 403e9cac | miniUPnPDevRegist |
 	| 403ef70c | miniUPnPSSDPHandle |
