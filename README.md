@@ -828,15 +828,11 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 
 	| Address  | Function |
 	|----------|----------|
-	| 40470B70 | memset_wrapper |
-	| 40468290 | memset |
-	| 404681B4 | memcpy |
-	| 404CB19C | printf (kind of) |
-	| 404CAFD8 | sprintf |
-	| 40482030 | snprintf |
 	| 403AF220 | strcasecmp |
 	| 4043D23C | strncasecmp |
 	| 4043D30C | strncpy |
+	| 404681B4 | memcpy |
+	| 40468290 | memset |
 	| 4046E508 | strncpy (also?) |
 	| 4046EE1C | strtol |
 	| 4046EFB4 | strstr |
@@ -844,12 +840,17 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 	| 40470138 | strncmp |
 	| 4047033C | strchr |
 	| 40470890 | strcmp |
+	| 40470B70 | memset_wrapper |
 	| 40471F64 | strcpy |
 	| 40471568 | memcpy_wrapper |
+	| 40482030 | snprintf |
 	| 40483380 | socket (kind of) |
 	| 404833f4 | bind |
 	| 404836ec | recvfrom |
-
+	| 40483808 | recvmsg |
+	| 404CAFD8 | sprintf |
+	| 404CB19C | printf (kind of) |
+	
 *	Interesting functions:
 
 	| Address  | Function |
@@ -857,11 +858,13 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 	| 403e91f8 | miniUPnPDevAdd |
 	| 403e9cac | miniUPnPDevRegist |
 	| 403ef70c | miniUPnPSSDPHandle |
-	| 4044ACF8 | dbg_printf (?) |
 	| 40414538 | igdIPCGetSpecificPortMapEntry |
 	| 404147c4 | igdIPCDeletePortMapping |
 	| 40414a64 | igdIPCGetGenericPortMapEntry |
 	| 40414ce0 | igdIPCAddPortMapping |
+	| 4043b6e8 | dhcp6ReadMsg |
+	| 40449dbc | parseXML |
+	| 4044ACF8 | dbg_printf (?) |
 
 *	Function `dbg_printf()` takes as parameter 1 the name of the function in which it is being called, so a lot of functions can be named from that
 
