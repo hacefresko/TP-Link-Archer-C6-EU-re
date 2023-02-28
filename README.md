@@ -828,40 +828,72 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 
 	| Address  | Function |
 	|----------|----------|
-	| 403AF220 | strcasecmp |
-	| 4043D23C | strncasecmp |
-	| 4043D30C | strncpy |
-	| 404681B4 | memcpy |
+	| 403af220 | strcasecmp |
+	| 4043d23c | strncasecmp |
+	| 4043d30c | strncpy |
+	| 404681b4 | memcpy |
 	| 40468290 | memset |
-	| 4046E508 | strncpy (also?) |
-	| 4046EE1C | strtol |
-	| 4046EFB4 | strstr |
-	| 4046F5BC | strlen |
+	| 4046e508 | strncpy (also?) |
+	| 4046ee1c | strtol |
+	| 4046efb4 | strstr |
+	| 4046f5Bc | strlen |
 	| 40470138 | strncmp |
-	| 4047033C | strchr |
+	| 4047033c | strchr |
 	| 40470890 | strcmp |
-	| 40470B70 | memset_wrapper |
-	| 40471F64 | strcpy |
+	| 40470b70 | memset_wrapper |
+	| 40471f64 | strcpy |
 	| 40471568 | memcpy_wrapper |
 	| 40482030 | snprintf |
-	| 40483380 | socket (kind of) |
+	| 40483380 | socket |
 	| 404833f4 | bind |
+	| 404834a0 | accept |
 	| 404836ec | recvfrom |
 	| 40483808 | recvmsg |
-	| 404CAFD8 | sprintf |
-	| 404CB19C | printf (kind of) |
+	| 404cafd8 | sprintf |
+	| 404cb19c | printf |
+	| 404cbd0c | sscanf |
 
 *	Interesting functions:
 
 	| Address  | Function |
 	|----------|----------|
-	| 403c6cb4 | sendOffer |
-	| 403c74bc | dhcpsHandle |
-	| 403c3878 | dhcp6sHandle |
+	| 4020cf58 | dhcpcHandle |
+	| 40372414 | get_igd_LANHostConfigManagement |
+	| 403726e8 | set_igd_IPInterface |
+	| 40372914 | get_igd_IPInterface |
+	| 403731e0 | set_igd_WLANConfiguration | 
+	| 40373978 | get_igd_WLANConfiguration |
+	| 40373e3c | set_igd_ManagementServer |
+	| 40374220 | get_igd_ManagementServer |
+	| 40374a5c | get_igd_TraceRouteDiagnostics |
+	| 40374b68 | set_igd_TraceRouteDiagnostics |
+	| 40374d2c | get_igd_TRDiagnoseRouteHops |
+	| 40374f28 | get_igd_WANDevice |
+	| 40375070 | get_igd_WANConnectionDevice |
+	| 403751e4 | list_igd_WANConnectionDevice |
+	| 403754f0 | set_igd_WANIPConnection |
+	| 4037591c | get_igd_WANIPConnection |
+	| 4037630c | set_igd_WANPPPConnection |
+	| 403777a4 | get_igd_WANPPPConnection |
+	| 403777a4 | get_igd_WANXXXConnection_Stats |
+	| 40379000 | cwmp_httpBasicAuthCheck |
+	| 40378864 | cwmp_httpDigestAuthCheck |
+	| 40379278 | cwmp_getBasicAuthInfo |
+	| 403793e0 | cwmp_getDigestAuthInfo |
+	| 4037f31c | cwmp_parseAuthInfo |
+	| 403800b4 | cwmp_sockRead |
+	| 40380200 | cwmp_readLine |
+	| 403810f4 | cwmp_httpSeverReqCheck |
+	| 403817ec | cwmp_httpServerHandle |
+	| 403848c8 | cwmp_parseDownloadInfo |
+	| 40384c58 | cwmp_parseUploadInfo |
 	| 4038612c | cwmp_download |
 	| 403863a4 | cwmp_upload |
 	| 40386aac | cwmp_processRecv |
 	| 40388cbc | cwmp_parseSoapHeader |
+	| 403c3878 | dhcp6sHandle |
+	| 403c6cb4 | sendOffer |
+	| 403c74bc | dhcpsHandle |
 	| 403e91f8 | miniUPnPDevAdd |
 	| 403e9cac | miniUPnPDevRegist |
 	| 403ef70c | miniUPnPSSDPHandle |
