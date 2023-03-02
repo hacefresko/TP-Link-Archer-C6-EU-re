@@ -849,6 +849,7 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 	| 404834a0 | accept |
 	| 404836ec | recvfrom |
 	| 40483808 | recvmsg |
+	| 404a53d8 | getaddrinfo |
 	| 404cafd8 | sprintf |
 	| 404cb19c | printf |
 	| 404cbd0c | sscanf |
@@ -866,6 +867,9 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 	| 4021b890 | pppoeReceiveRtn |
 	| 4021cbec | dnsHandle |
 	| 4021f458 | rtsoldHandle |
+	| 4022a0d4 | tdpPayloadDecryptAes |
+	| 4022a200 | tdpPayloadEncryptAes |
+	| 40235fd0 | cloud_client_handle_request |
 	| 40371040 | get_igd_DeviceInfo |
 	| 40370d08 | set_igd_DeviceInfo | 
 	| 4037190c | get_igd_IPPingDiagnostics |
@@ -909,6 +913,7 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 	| 403c3878 | dhcp6sHandle |
 	| 403c6cb4 | sendOffer |
 	| 403c74bc | dhcpsHandle |
+	| 403de414 | ipssh_conn_v2_handler |
 	| 403e91f8 | miniUPnPDevAdd |
 	| 403e9cac | miniUPnPDevRegist |
 	| 403ef70c | miniUPnPSSDPHandle |
@@ -918,9 +923,12 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 	| 40414ce0 | igdIPCAddPortMapping |
 	| 4043b6e8 | dhcp6ReadMsg |
 	| 40449dbc | parseXML |
-	| 4044ACF8 | dbg_printf (?) |
+	| 404612c4 | tmp_client_recv_ssh |
+	| 4044a980 | dbg_printf2 (?) |
+	| 4044aCF8 | dbg_printf (?) |
 
 *	Function `dbg_printf()` takes as parameter 1 the name of the function in which it is being called, so a lot of functions can be named from that
+*	Function `dbg_printf2()` can also be used to get the names of many functions
 
 ## Findings
 
