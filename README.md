@@ -857,7 +857,22 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 
 	| Address  | Function |
 	|----------|----------|
+	| 4020a9c4 | dhcp6cHandle |
+	| 4020ad64 | dhcp6cRecvAdv |
+	| 4020aff8 | dhcp6cRecvReplyForRenewOrRebind |
+	| 4020b388 | dhcp6cRecvReplyForRequest |
+	| 4020b8b4 | dhcp6cRecvReplyForInform |
 	| 4020cf58 | dhcpcHandle |
+	| 4021b890 | pppoeReceiveRtn |
+	| 4021cbec | dnsHandle |
+	| 4021f458 | rtsoldHandle |
+	| 40371040 | get_igd_DeviceInfo |
+	| 40370d08 | set_igd_DeviceInfo | 
+	| 4037190c | get_igd_IPPingDiagnostics |
+	| 40371a38 | set_igd_IPPingDiagnostics |
+	| 40371c70 | get_igd_LANDevice |
+	| 40371dc8 | get_igd_LANEthernetInterfaceConfig |
+	| 40372140 | set_igd_LANHostConfigManagement |
 	| 40372414 | get_igd_LANHostConfigManagement |
 	| 403726e8 | set_igd_IPInterface |
 	| 40372914 | get_igd_IPInterface |
