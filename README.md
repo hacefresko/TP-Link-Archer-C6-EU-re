@@ -817,7 +817,7 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 	![](./images/undefined_func_decompiled.png)
 
 
-	This can be solved by creating a function in that memory address with double-click > `Create Function`.
+	This can be solved by creating a function in that memory address with right-click > `Create Function`.
 
 *	By setting the memory map to not writteable, strings appear direcly in the function calls
 
