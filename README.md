@@ -829,13 +829,14 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 	| Address  | Function |
 	|----------|----------|
 	| 403af220 | strcasecmp |
+	| 40431c0c | strstr |
 	| 4043d23c | strncasecmp |
 	| 4043d30c | strncpy |
 	| 404681b4 | memcpy |
 	| 40468290 | memset |
 	| 4046e508 | strncpy (also?) |
 	| 4046ee1c | strtol |
-	| 4046efb4 | strstr |
+	| 4046efb4 | strstr (also?)|
 	| 4046f5Bc | strlen |
 	| 40470138 | strncmp |
 	| 4047033c | strchr |
@@ -844,12 +845,14 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 	| 40471f64 | strcpy |
 	| 40471568 | memcpy_wrapper |
 	| 40482030 | snprintf |
-	| 40483380 | socket |
-	| 404833f4 | bind |
-	| 404834a0 | accept |
-	| 404836ec | recvfrom |
-	| 40483808 | recvmsg |
-	| 404a53d8 | getaddrinfo |
+	| 40483380 | ipcom_socket |
+	| 404833f4 | ipcom_bind |
+	| 404834a0 | ipcom_accept |
+	| 4048354c | ipcom_connect |
+	| 404836ec | ipcom_recvfrom |
+	| 40483808 | ipcom_recvmsg |
+	| 40483864 | ipcom_setsockopt |
+	| 404a53d8 | ipcom_ getaddrinfo |
 	| 404cafd8 | sprintf |
 	| 404cb19c | printf |
 	| 404cbd0c | sscanf |
@@ -913,15 +916,21 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 	| 403c3878 | dhcp6sHandle |
 	| 403c6cb4 | sendOffer |
 	| 403c74bc | dhcpsHandle |
+	| 403d78f4 | ipssh_msg_userauth_req |
+	| 403d841c | ipssh_buffer_get_sshstr |
+	| 403db2e4 | ipssh_create_dh_group1 |
+	| 403dab54 | ipssh_msg_channel_request |
 	| 403de414 | ipssh_conn_v2_handler |
 	| 403e91f8 | miniUPnPDevAdd |
 	| 403e9cac | miniUPnPDevRegist |
 	| 403ef70c | miniUPnPSSDPHandle |
+	| 403f1d5c | tdpdHandle |
 	| 40414538 | igdIPCGetSpecificPortMapEntry |
 	| 404147c4 | igdIPCDeletePortMapping |
 	| 40414a64 | igdIPCGetGenericPortMapEntry |
 	| 40414ce0 | igdIPCAddPortMapping |
 	| 4043b6e8 | dhcp6ReadMsg |
+	| 4043e564 | setAuthInfo |
 	| 40449dbc | parseXML |
 	| 404612c4 | tmp_client_recv_ssh |
 	| 4044a980 | dbg_printf2 (?) |
