@@ -832,12 +832,15 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 	| 40431c0c | strstr |
 	| 4043d23c | strncasecmp |
 	| 4043d30c | strncpy |
+	| 40448044 | ipcom_accept |
+	| 40448090 | ipcom_socketioctl |
 	| 404681b4 | memcpy |
 	| 40468290 | memset |
 	| 4046e508 | strncpy (also?) |
 	| 4046ee1c | strtol |
 	| 4046efb4 | strstr (also?)|
 	| 4046f5Bc | strlen |
+	| 404691a8 | ioctl |
 	| 40470138 | strncmp |
 	| 4047033c | strchr |
 	| 40470890 | strcmp |
@@ -846,13 +849,16 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 	| 40471568 | memcpy_wrapper |
 	| 40482030 | snprintf |
 	| 40483380 | ipcom_socket |
-	| 404833f4 | ipcom_bind |
-	| 404834a0 | ipcom_accept |
-	| 4048354c | ipcom_connect |
-	| 404836ec | ipcom_recvfrom |
-	| 40483808 | ipcom_recvmsg |
-	| 40483864 | ipcom_setsockopt |
-	| 404a53d8 | ipcom_ getaddrinfo |
+	| 404833f4 | bind |
+	| 404834a0 | accept |
+	| 4048354c | connect |
+	| 40483630 | send |
+	| 404836ec | recvfrom |
+	| 40483808 | recvmsg |
+	| 40483864 | setsockopt |
+	| 40483934 | getsockname |
+	| 404a53d8 | getaddrinfo |
+	| 404c64bc | ipcom_malloc |
 	| 404cafd8 | sprintf |
 	| 404cb19c | printf |
 	| 404cbd0c | sscanf |
@@ -898,8 +904,8 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 	| 4037630c | set_igd_WANPPPConnection |
 	| 403777a4 | get_igd_WANPPPConnection |
 	| 403777a4 | get_igd_WANXXXConnection_Stats |
-	| 40379000 | cwmp_httpBasicAuthCheck |
 	| 40378864 | cwmp_httpDigestAuthCheck |
+	| 40379000 | cwmp_httpBasicAuthCheck |
 	| 40379278 | cwmp_getBasicAuthInfo |
 	| 403793e0 | cwmp_getDigestAuthInfo |
 	| 4037f31c | cwmp_parseAuthInfo |
@@ -916,10 +922,14 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 	| 403c3878 | dhcp6sHandle |
 	| 403c6cb4 | sendOffer |
 	| 403c74bc | dhcpsHandle |
+	| 403d53e0 | ipssh_read_version_str |
+	| 403d5e64 | ipssh_server |
+	| 403d6168 | ipssh |
 	| 403d78f4 | ipssh_msg_userauth_req |
 	| 403d841c | ipssh_buffer_get_sshstr |
-	| 403db2e4 | ipssh_create_dh_group1 |
+	| 403d9df0 | ipssh_validate_userid_pw_cb |
 	| 403dab54 | ipssh_msg_channel_request |
+	| 403db2e4 | ipssh_create_dh_group1 |
 	| 403de414 | ipssh_conn_v2_handler |
 	| 403e91f8 | miniUPnPDevAdd |
 	| 403e9cac | miniUPnPDevRegist |
@@ -932,10 +942,10 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 	| 4043b6e8 | dhcp6ReadMsg |
 	| 4043e564 | setAuthInfo |
 	| 40449dbc | parseXML |
-	| 404612c4 | tmp_client_recv_ssh |
 	| 4044a980 | dbg_printf2 (?) |
 	| 4044aCF8 | dbg_printf (?) |
 	| 4045fcc0 | tmp_client_handler |
+	| 404612c4 | tmp_client_recv_ssh |
 
 *	Function `dbg_printf()` takes as parameter 1 the name of the function in which it is being called, so a lot of functions can be named from that
 *	Function `dbg_printf2()` can also be used to get the names of many functions
