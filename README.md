@@ -926,6 +926,7 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 	| 404612c4 | tmp_client_recv_ssh |
 	| 4044a980 | dbg_printf2 (?) |
 	| 4044aCF8 | dbg_printf (?) |
+	| 4045fcc0 | tmp_client_handler |
 
 *	Function `dbg_printf()` takes as parameter 1 the name of the function in which it is being called, so a lot of functions can be named from that
 *	Function `dbg_printf2()` can also be used to get the names of many functions
