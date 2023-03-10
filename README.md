@@ -876,9 +876,116 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 	| 4021b890 | pppoeReceiveRtn |
 	| 4021cbec | dnsHandle |
 	| 4021f458 | rtsoldHandle |
+	| 40223798 | onemeshTdpInit |
+	| 40226b74 | onemesh_checkProbeBroadcast |
+	| 40226cf0 | onemesh_reIpChanged |
+	| 40226ec0 | onemesh_checkSyncSlaveWcfg |
+	| 40227070 | onemesh_checkJoin |
+	| 40227234 | onemesh_tmpAction |
+	| 402271cc | onemesh_syncSlaveWcfg |
+	| 402272c0 | onemesh_json_update |
+	| 40227390 | onemesh_reAdded |
+	| 402273e0 | onemesh_reTopoGet |
+	| 402274f4 | onemesh_updateSlaveInfo |
+	| 40227598 | onemesh_reBinded |
+	| 402276ec | onemesh_re_event |
+	| 402277c0 | onemesh_update_tmp_json |
+	| 40227dd0 | onemeshModelInit |
+	| 4022813c | onemesh_dm_get_slave_info_permit_null |
+	| 40228258 | onemesh_dm_gen_slave_info |
+	| 4022836c | onemesh_dm_gen_slave_status_info |
+	| 402285a0 | onemesh_dm_add_slave_status_info |
+	| 40228774 | onemesh_gen_dm_client_available |
+	| 4022887c | onemesh_dm_client_available_add |
+	| 40228988 | onemesh_dm_set_slave_info |
+	| 40228ae4 | onemesh_dm_remove_slave_info |
+	| 40228c20 | onemesh_dm_get_onemesh_device_info |
+	| 40228d6c | onemesh_dm_get_onemesh_master_info |
+	| 40228e18 | onemesh_dm_get_wlan_cfg |
+	| 40229588 | onemesh_printEntry |
+	| 40229880 | onemesh_entrySyncWcfgOk |
+	| 402298f0 | onemesh_entryUpdateTimeStamp |
+	| 4022996c | onemesh_entryAddTopo |
+	| 402299e8 | onemesh_internalDataInit |
+	| 40229af0 | onemesh_mallocEntryPtr |
+	| 40229ca0 | onemesh_tdp_new_packet |
+	| 40229d88 | onemesh_tdp_add_payload |
+	| 40229e5c | onemesh_tdp_send_str_xor |
+	| 40229f30 | onemesh_tdp_probe |
 	| 4022a0d4 | tdpPayloadDecryptAes |
 	| 4022a200 | tdpPayloadEncryptAes |
+	| 4022a308 | onemesh_tdp_send_str_aes |
+	| 4022a3e0 | onemesh_tdp_slave_key_offer |
+	| 4022a574 | onemesh_tdp_attach_master |
+	| 4022a73c | onemesh_tdp_send_probe |
+	| 4022acc4 | onemesh_build_probe |
+	| 4022afa0 | onemesh_probe_parse |
+	| 4022b624 | onemesh_attach_master_build_reply |
+	| 4022b7a4 | onemesh_slave_key_offer_build_new_entry |
+	| 4022b840 | onemesh_slave_key_offer_parse |
+	| 4022ba7c | onemesh_slave_key_offer_build_reply |
+	| 4022c9c8 | onemesh_get_json_result |
+	| 4022cb3c | onemesh_remove_slave_cb |
+	| 4022cca0 | onemesh_get_client_wcfg_cb |
+	| 4022cdd4 | onemesh_get_client_topo_cb |
+	| 4022cf64 | onemesh_add_slave_cb |
+	| 4022d124 | onemesh_sync_client_wcfg_cb |
+	| 4022d29c | onemesh_get_wlan_cfg_json |
+	| 4022d434 | onemesh_tmp_create |
+	| 4022d4e4 | onemesh_tmp_remove_slave |
+	| 4022d558 | onemesh_tmp_add_slave |
+	| 4022d664 | onemesh_tmp_sync_client_wcfg |
+	| 4022d76c | onemesh_tmp_get_client_topo |
+	| 4022d7e4 | onemesh_tmp_get_client_wcfg |
+	| 4022da50 | onemesh_json_add |
+	| 4022db1c | onemesh_json_remove |
+	| 4022ec5c | onemesh_getClientTreeStr |
+	| 4022ef0c | rsa_key_init |
+	| 4022f018 | rsa_dec |
+	| 4022f3c0 | onemeshGetJsonBool |
+	| 4022f490 | onemeshGetJsonInt |
+	| 4022f540 | onemeshGetJsonUint8 |
+	| 4022f5f0 | onemeshStrncpy |
+	| 4022f670 | gen_rsa_key |
+	| 4022f82c | onemeshGetJsonString |
 	| 40235fd0 | cloud_client_handle_request |
+	| 40238294 | cloud_cycle_start |
+	| 4023c1fc | cloud_handshake_hellocloud_add_authcode |
+	| 4023c680 | cloud_handshake_parse_sef_response |
+	| 4023cd78 | cloud_handshake_generate_hellocloud_svr |
+	| 4023ce98 | cloud_handshake_svr |
+	| 4023e71c | cloudHttpsPost |
+	| 4023f038 | getServerTokenFromServer |
+	| 4023f4ec | cloudHttpsRequestDispatch | 
+	| 4023fa7c | _httpsCheckIsBinded |
+	| 4023fee8 | _httpsAccountUnbind |
+	| 40240344 | _httpsAccountBind |
+	| 40240804 | httpsAccountBind |
+	| 40240a50 | httpsAccountUnbindForTpApp |
+	| 40240aec | httpsAccountUnbindWithAccountId |
+	| 40240ee8 | httpsRemoveUser |
+	| 402412e4 | httpsGetUserRole |
+	| 40242808 | cloud_ip_list_parse |
+	| 4024323c | cloud_ipc_recv |
+	| 40243464 | cloud_ipc_send |
+	| 402445a8 | cloud_mq_insert_request | 
+	| 40244750 | cloud_mq_set_response |
+	| 402448a0 | cloud_mq_get_response |
+	| 40244a20 | cloud_mq_send_request |
+	| 402458e0 | cloud_server_handle |
+	| 40246140 | cloud_session_connect_sef |
+	| 40246300 | cloud_session_connect_cachedSvr |
+	| 402464d0 | cloud_session_connect_defaultSvr |
+	| 40247f08 | cloud_ssl_verify_callback |
+	| 402480b8 | cloud_socket_init |
+	| 40248244 | cloud_socket_connect |
+	| 40248d3c | cloud_socket_send |
+	| 40248ec8 | cloud_socket_recv |
+	| 4024b474 | httpsReadLine |
+	| 4024b594 | httpsSocketRecv |
+	| 4024c14c | processHttpsChunk |
+	| 4024c440 | httpsSocketConnect |
+	| 4024d3ac | httpsPost |
 	| 40371040 | get_igd_DeviceInfo |
 	| 40370d08 | set_igd_DeviceInfo | 
 	| 4037190c | get_igd_IPPingDiagnostics |
@@ -919,6 +1026,7 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 	| 403863a4 | cwmp_upload |
 	| 40386aac | cwmp_processRecv |
 	| 40388cbc | cwmp_parseSoapHeader |
+	| 4039b438 | wlanWpsSetPskSecret |
 	| 403c3878 | dhcp6sHandle |
 	| 403c6cb4 | sendOffer |
 	| 403c74bc | dhcpsHandle |
