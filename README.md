@@ -936,6 +936,7 @@ Again, LZMA data is messing up the results of `binwalk`, so let's separate the d
 	| 4022a73c | onemesh_tdp_send_probe |
 	| 4022acc4 | onemesh_build_probe |
 	| 4022afa0 | onemesh_probe_parse |
+	| 4022b4c4 | onemesh_attach_master_parse |
 	| 4022b624 | onemesh_attach_master_build_reply |
 	| 4022b7a4 | onemesh_slave_key_offer_build_new_entry |
 	| 4022b840 | onemesh_slave_key_offer_parse |
