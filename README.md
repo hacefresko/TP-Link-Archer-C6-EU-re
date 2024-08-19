@@ -13,7 +13,7 @@ This repository aims to reverse engineer the TP-Link Archer C6 v4 (Europe Versio
 
 It uses a custom CPU named `TP-Link ARM TP1900BN 2227-BXDSL ACMCACT6 05AA6132CF30001`.
 
-I found out that TP-Link Archer C8 (US) router is nearly identical to this model, including the CPU, except that it is labeled as `Mediatek TP1900BN 1945-BXDSL ACMCN611 05AA69191180006`, which seems to be a previous revision. Also found [here](https://forum.openwrt.org/t/tp-link-archer-c80-2020-will-it-be-supported/60897) that `TP1900BN` and `MT7626B(N)` are different names for the same SOC, which runs **ARM Cortex-A7020-will-it-be-supported/60897) that `TP1900BN` and `MT7626B(N)` are different names for the same SOC, which runs **ARM Cortex-A7**. Besides, when booting the device, there's a message through UART confirming this: `Hello, MT7626 E2`.
+I found out that TP-Link Archer C8 (US) router is nearly identical to this model, including the CPU, except that it is labeled as `Mediatek TP1900BN 1945-BXDSL ACMCN611 05AA69191180006`, which seems to be a previous revision. Also found [here](https://forum.openwrt.org/t/tp-link-archer-c80-2020-will-it-be-supported/60897) that `TP1900BN` and `MT7626B(N)` are different names for the same SOC, which runs **ARM Cortex-A7**. Besides, when booting the device, there's a message through UART confirming this: `Hello, MT7626 E2`.
 
 ### Ethernet controller
 
